@@ -1,0 +1,10 @@
+{
+  "name": "MyServer",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "canvas": "*",
+    "express": "4.14.x",
+    "google-panorama-equirectangular": "*"
+, "request": "*" ,"http" : "*"  }
+}

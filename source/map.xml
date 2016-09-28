@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="iso-8859-1"?><node>
+   <id>aVSWD2YtnuCo4xtGihYQxA</id>
+   <lat>45.55191710611816</lat>
+   <lng>11.555059908090925</lng>
+   <links>
+      <link>4jrMhlav5g_apcuv8A28Zg</link>
+      <link>CgBZIWjFd4LfksQTlojapg</link>
+   </links>
+</node>
+<node>
+   <id>4jrMhlav5g_apcuv8A28Zg</id>
+   <lat>45.5518549704541</lat>
+   <lng>11.555145505008682</lng>
+   <links>
+      <link>aVSWD2YtnuCo4xtGihYQxA</link>
+      <link>QpHW2ZCU_wz9EFCVhO6YQg</link>
+   </links>
+</node>
+<node>
+   <id>CgBZIWjFd4LfksQTlojapg</id>
+   <lat>45.55197924178222</lat>
+   <lng>11.554974311173169</lng>
+   <links>
+      <link>aVSWD2YtnuCo4xtGihYQxA</link>
+      <link>uZZ64GIrI6XYomGb9DQYCQ</link>
+   </links>
+</node>
+<node>
+   <id>uZZ64GIrI6XYomGb9DQYCQ</id>
+   <lat>45.55204439720656</lat>
+   <lng>11.554883979781494</lng>
+   <links>
+      <link>CgBZIWjFd4LfksQTlojapg</link>
+      <link>dFxncHr1Y_2JwTpnhf6TAg</link>
+   </links>
+</node>
+<node>
+   <id>QpHW2ZCU_wz9EFCVhO6YQg</id>
+   <lat>45.55179231378045</lat>
+   <lng>11.555231819979895</lng>
+   <links>
+      <link>4jrMhlav5g_apcuv8A28Zg</link>
+      <link>1_c28xBFOktzOns8Lno1lQ</link>
+   </links>
+</node>
+<node>
+   <id>dFxncHr1Y_2JwTpnhf6TAg</id>
+   <lat>45.55210667243957</lat>
+   <lng>11.55479632671495</lng>
+   <links>
+      <link>uZZ64GIrI6XYomGb9DQYCQ</link>
+      <link>r85ZT_uH2yORc76VmM2aVg</link>
+   </links>
+</node>
+<node>
+   <id>1_c28xBFOktzOns8Lno1lQ</id>
+   <lat>45.55172109614096</lat>
+   <lng>11.555332440942834</lng>
+   <links>
+      <link>QpHW2ZCU_wz9EFCVhO6YQg</link>
+      <link>ZOXNXxffzOjqK8rty6gI7g</link>
+   </links>
+</node>
+<node>
+   <id>r85ZT_uH2yORc76VmM2aVg</id>
+   <lat>45.5521690624778</lat>
+   <lng>11.554708511769263</lng>
+   <links>
+      <link>dFxncHr1Y_2JwTpnhf6TAg</link>
+      <link>i9R_Qftg3gywr3DldjrzCg</link>
+   </links>
+</node>
+<node>
+   <id>ZOXNXxffzOjqK8rty6gI7g</id>
+   <lat>45.5516606</lat>
+   <lng>11.555420400000003</lng>
+   <links>
+      <link>1_c28xBFOktzOns8Lno1lQ</link>
+      <link>1WpG7slZPOSknuvaGJSCRA</link>
+   </links>
+</node>
+<node>
+   <id>i9R_Qftg3gywr3DldjrzCg</id>
+   <lat>45.55223067994347</lat>
+   <lng>11.554621783947141</lng>
+   <links>
+      <link>r85ZT_uH2yORc76VmM2aVg</link>
+      <link>z7Oi-x9YNGfRsHugK9hgxQ</link>
+   </links>
+</node>
+<node>
+   <id>1WpG7slZPOSknuvaGJSCRA</id>
+   <lat>45.55159771928423</lat>
+   <lng>11.55550896198497</lng>
+   <links>
+      <link>ZOXNXxffzOjqK8rty6gI7g</link>
+      <link>mVBWf4ae7Y0YGf1pDFXeQQ</link>
+   </links>
+</node>
+<node>
+   <id>z7Oi-x9YNGfRsHugK9hgxQ</id>
+   <lat>45.55229215749822</lat>
+   <lng>11.554535252770961</lng>
+   <links>
+      <link>i9R_Qftg3gywr3DldjrzCg</link>
+      <link>ExA6DcIhuCobfkoEdKan3g</link>
+   </links>
+</node>
+<node>
+   <id>mVBWf4ae7Y0YGf1pDFXeQQ</id>
+   <lat>45.55153387616721</lat>
+   <lng>11.555598879525633</lng>
+   <links>
+      <link>1WpG7slZPOSknuvaGJSCRA</link>
+      <link>lxL1ySpCi2HheX1mbMsK4w</link>
+   </links>
+</node>
+<node>
+   <id>ExA6DcIhuCobfkoEdKan3g</id>
+   <lat>45.55235178577191</lat>
+   <lng>11.55444886026055</lng>
+   <links>
+      <link>z7Oi-x9YNGfRsHugK9hgxQ</link>
+      <link>4rwh1DZFOLcZPOZdjdScgg</link>
+   </links>
+</node>
+<node>
+   <id>lxL1ySpCi2HheX1mbMsK4w</id>
+   <lat>45.55149756601726</lat>
+   <lng>11.555645388682933</lng>
+   <links>
+      <link>mVBWf4ae7Y0YGf1pDFXeQQ</link>
+      <link>jN4Ibj41j1MVpCRRjt2aQg</link>
+      <link>UIVDpTjwrMb7FqsthumTgQ</link>
+   </links>
+</node>
+<node>
+   <id>4rwh1DZFOLcZPOZdjdScgg</id>
+   <lat>45.55241502112014</lat>
+   <lng>11.554353858222953</lng>
+   <links>
+      <link>ExA6DcIhuCobfkoEdKan3g</link>
+      <link>eUJj2bkYXlwWHV6XkINr5w</link>
+   </links>
+</node>
+<node>
+   <id>jN4Ibj41j1MVpCRRjt2aQg</id>
+   <lat>45.55152367390716</lat>
+   <lng>11.555648880948638</lng>
+   <links>
+      <link>lxL1ySpCi2HheX1mbMsK4w</link>
+      <link>M5bsOSugwJ2tKpuOLYa5mg</link>
+   </links>
+</node>
+<node>
+   <id>UIVDpTjwrMb7FqsthumTgQ</id>
+   <lat>45.55142093931897</lat>
+   <lng>11.555730615677248</lng>
+   <links>
+      <link>lxL1ySpCi2HheX1mbMsK4w</link>
+      <link>M1SFER0Z_htVTMik7ZgoEA</link>
+   </links>
+</node>
+<node>
+   <id>eUJj2bkYXlwWHV6XkINr5w</id>
+   <lat>45.55246991448718</lat>
+   <lng>11.554256904102886</lng>
+   <links>
+      <link>4rwh1DZFOLcZPOZdjdScgg</link>
+      <link>yn1CL3RR9gfgxv8CN3z7pw</link>
+   </links>
+</node>
+<node>
+   <id>M5bsOSugwJ2tKpuOLYa5mg</id>
+   <lat>45.55158651735006</lat>
+   <lng>11.55577416664039</lng>
+   <links>
+      <link>jN4Ibj41j1MVpCRRjt2aQg</link>
+      <link>AgZUhqaTgJSwNZvhUyQSKw</link>
+   </links>
+</node>
+<node>
+   <id>M1SFER0Z_htVTMik7ZgoEA</id>
+   <lat>45.55134431262069</lat>
+   <lng>11.555815842671677</lng>
+   <links>
+      <link>UIVDpTjwrMb7FqsthumTgQ</link>
+      <link>bSlRcpO49kPJ3qR1tGPT5g</link>
+   </links>
+</node>
+<node>
+   <id>bSlRcpO49kPJ3qR1tGPT5g</id>
+   <lat>45.5512762</lat>
+   <lng>11.555891599999995</lng>
+   <links>
+      <link>M1SFER0Z_htVTMik7ZgoEA</link>
+      <link>XkfS2WyFRUvUtsMWKyPnew</link>
+   </links>
+</node>
+<node>
+   <id>yn1CL3RR9gfgxv8CN3z7pw</id>
+   <lat>45.5525089698789</lat>
+   <lng>11.554146418005189</lng>
+   <links>
+      <link>eUJj2bkYXlwWHV6XkINr5w</link>
+      <link>8UI5APOxYrCehOtutyXkJg</link>
+   </links>
+</node>
+<node>
+   <id>AgZUhqaTgJSwNZvhUyQSKw</id>
+   <lat>45.55165459774654</lat>
+   <lng>11.55590989280654</lng>
+   <links>
+      <link>M5bsOSugwJ2tKpuOLYa5mg</link>
+   </links>
+</node>
+<node>
+   <id>XkfS2WyFRUvUtsMWKyPnew</id>
+   <lat>45.551219</lat>
+   <lng>11.555939200000012</lng>
+   <links>
+      <link>bSlRcpO49kPJ3qR1tGPT5g</link>
+   </links>
+</node>
+<node>
+   <id>8UI5APOxYrCehOtutyXkJg</id>
+   <lat>45.55253600000001</lat>
+   <lng>11.554052899999988</lng>
+   <links>
+      <link>yn1CL3RR9gfgxv8CN3z7pw</link>
+      <link>DeVt6xeY8v__daA1su8q0g</link>
+   </links>
+</node>
+<node>
+   <id>DeVt6xeY8v__daA1su8q0g</id>
+   <lat>45.55255120928464</lat>
+   <lng>11.554000526051595</lng>
+   <links>
+      <link>8UI5APOxYrCehOtutyXkJg</link>
+   </links>
+</node>

@@ -1,0 +1,42 @@
+<html>
+<head>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvSnngkSOuYhUWNhokrUi0j0UGYdIA5Hs"async defer></script>
+<script type="text/javascript" src="pan.js"></script>
+
+<style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map{
+        height: 80%;
+        width: 100%;
+      }
+      form {
+        height: 10%;
+        width: 100%;
+        bottom: 0px;
+      }
+      #download{
+        width: 80px;
+        height: 50px;
+      }
+    </style>
+</head>
+<body>
+  <div id="map"></div>
+  <form>
+    initLat:
+    <input type="text" id="initLat" value="45.551985">
+    initLng:
+    <input type="text" id="initLng" value="11.554968">
+    <br><br>
+    maxLat:
+    <input type="text" id="maxLat" value="45.552985">
+    maxLng:
+    <input type="text" id="maxLng" value="11.555968"><br><br>
+  </form>
+  <div align="center"><button id="Download" onclick="initialize()">Download now!</button></div>
+  </body>
+</html>
