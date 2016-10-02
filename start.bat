@@ -1,1 +1,1 @@
-cmd.exe /K "cd \Users\filippo\Desktop\node_pan\"
+cmd.exe /K "cd C:\Users\filip\Desktop\node_pan\source"
