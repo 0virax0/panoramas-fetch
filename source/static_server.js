@@ -4,6 +4,8 @@ var express = require('express')
    ,Canvas = require("canvas")
    ,c1 = { free : true, canvas : new Canvas()}
    ,c2 = { free : true, canvas : new Canvas()}
+   ,events = require("events")
+   ,eventEmitter = new events.EventEmitter()
    ,queue = []
    ,bodyParser = require('body-parser')
    ,app = express()
@@ -12,6 +14,10 @@ app.use(express.static(__dirname + '/public'));
 app.use( bodyParser.json() );
 var incoming = 0, processed = 1;
 
+
+app.listen(8080, function () {
+  console.log('Server listening on port 8080');
+});
 //accept id post
 app.post('/', function(request, response){
   if(!request.body.graph){
@@ -33,9 +39,23 @@ app.post('/', function(request, response){
   }
   response.send('POST received');  //close connection
 });
-
-app.listen(8080, function () {
-  console.log('Server listening on port 8080');
+//SSE Events
+var messageCount = 0;
+app.get('/update-stream', function(req, res){
+  //make client listen forever
+  req.socket.setTimeout(1000 * 60 * 20); //set timer to 20 minutes
+  eventEmitter.on('message', function(e){
+    messageCount++;
+    res.write('id: ' + messageCount + '\n');
+    res.write("data: " + e + '\n\n');
+  });
+  //write header
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    'Connection': 'keep-alive'
+  });
+  res.write('\n');
 });
 
 //save images
@@ -60,7 +80,10 @@ function save(panoID, c){
           points+='#';
         else points+='.';
       }
-      console.log('saved'+points+' '+ Math.round(processed/incoming*100).toString() + '% ('+processed+'/'+incoming+')');
+      var progress = Math.round(processed/incoming*100);
+      console.log('saved'+points+' '+ progress.toString() + '% ('+processed+'/'+incoming+')');
+      //emit update to client
+      eventEmitter.emit('message', progress);
       //call next id
       var e = queue.shift();
       if(e)

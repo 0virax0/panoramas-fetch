@@ -1,7 +1,7 @@
 var sv;
 var map;
 var markers = [], poly;
-var initLat, initLng, maxLat, maxLng;
+var initLat, initLng;
 var graph = {};
 var started = 0, finished = 0;
 
@@ -22,10 +22,10 @@ var getDistance = function(p1, p2) {
 };
 
 function initialize() {
+  //subscribe to update-stream
+  updates();
     initLat = markers[0].getPosition().lat();
     initLng = markers[0].getPosition().lng();
-    maxLat = parseFloat(document.getElementById('maxLat').value);
-    maxLng = parseFloat(document.getElementById('maxLng').value);
     sv = new google.maps.StreetViewService();
 
 //get panorama in 50m radious
@@ -229,4 +229,12 @@ function reqGraph(){
 
   var data = JSON.stringify({graph:string});
   xhr.send(data);
+}
+function updates(){
+  var source = new EventSource('/update-stream');
+  source.addEventListener('message', function(e){
+    var bar = document.getElementById('progress-bar').style.width = e.data + '%';
+    if(e.data == 100) document.getElementById('progress-bar').style['background-color'] = '#bbbbff';
+    console.log("event received: "+e.data);
+  },false);
 }

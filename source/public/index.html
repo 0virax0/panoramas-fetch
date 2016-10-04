@@ -10,7 +10,7 @@
         padding: 0;
       }
       #map{
-        height: 80%;
+        height: 98%;
         width: 100%;
       }
       .controls{
@@ -30,10 +30,14 @@
         padding: 0 11px 0 13px;
         width: 300px;
       }
-      form {
-        height: 10%;
-        width: 70%;
+      #progress-bar {
+        height: 2%;
+        width: 0%;
         bottom: 0px;
+        background-color: #3385ff;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-shadow: 0px 0px .2em #000 inset;
       }
       .buttons{
         margin-bottom: 10px;
@@ -45,18 +49,8 @@
 <body>
   <input id="search-bar" class="controls" type="text" placeholder="Enter position">
   <div id="map"></div>
-  <form>
-    initLat:
-    <input class="controls" type="text" id="initLat" value="45.551985">
-    initLng:
-    <input class="controls" type="text" id="initLng" value="11.554968">
-    <br><br>
-    maxLat:
-    <input class="controls" type="text" id="maxLat" value="45.552985">
-    maxLng:
-    <input class="controls" type="text" id="maxLng" value="11.555968"><br><br>
-  </form>
   <button class="buttons" id="Download" onclick="initialize()">Download</button>
   <button class="buttons" id="Clear" onclick="clearMarkers()">Clear</button>
+    <div id="progress-bar"></div>
   </body>
 </html>
