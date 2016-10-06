@@ -1,10 +1,16 @@
 {
   "name": "MyServer",
   "version": "0.0.1",
+  "main": "static_server.js",
   "dependencies": {
     "body-parser": "^1.15.2",
     "canvas": "*",
     "express": "4.14.x",
-    "google-panorama-equirectangular": "*"
-, "request": "*" ,"http" : "*"  }
+    "google-panorama-equirectangular": "*",
+    "request": "*",
+    "http": "*"
+  },
+  "devDependencies": {
+    "electron": "^1.4.3"
+  }
 }
