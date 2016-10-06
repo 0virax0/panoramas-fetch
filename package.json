@@ -1,7 +1,7 @@
 {
   "name": "MyServer",
   "version": "0.0.1",
-  "main": "static_server.js",
+  "main": "./source/main.js",
   "dependencies": {
     "body-parser": "^1.15.2",
     "canvas": "*",
