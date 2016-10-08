@@ -60,7 +60,10 @@ server.main = function(){
       res.write('\n');
     });
 }
-server.main();  //this script is still executable directly in node
+server.main();
+server.quit = function(){
+  process.exit()
+}
 
 //save images
 server.save = function (panoID, c){

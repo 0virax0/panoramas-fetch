@@ -192,7 +192,7 @@ function processSVdata(data, args){
 
 function save(id){
   xhr = new XMLHttpRequest();
-  var url = "/";
+  var url = "http://127.0.0.1:8080/";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/json");
 
@@ -201,7 +201,7 @@ function save(id){
 }
 function reqGraph(){
   var xhr = new XMLHttpRequest();
-  var url = "/";
+  var url = "http://127.0.0.1:8080/";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/json");
 
@@ -231,10 +231,10 @@ function reqGraph(){
   xhr.send(data);
 }
 function updates(){
-  var source = new EventSource('/update-stream');
+  var source = new EventSource('http://127.0.0.1:8080/update-stream');
   source.addEventListener('message', function(e){
     var bar = document.getElementById('progress-bar').style.width = e.data + '%';
-    if(e.data == 100) document.getElementById('progress-bar').style['background-color'] = '#bbbbff';
+    if(e.data == 100) document.getElementById('progress-bar').style['background-color'] = '#CCECFF';
     console.log("event received: "+e.data);
   },false);
 }
