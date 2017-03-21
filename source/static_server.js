@@ -9,57 +9,64 @@ var express = require('express')
    ,queue = []
    ,bodyParser = require('body-parser')
    ,app = express()
-
-app.use(express.static(__dirname + '/public'));
-app.use( bodyParser.json() );
 var incoming = 0, processed = 1;
 
+//Exports
+var server = module.exports = {};
+server.main = function(){
+    app.use(express.static(__dirname + '/public'));
+    app.use( bodyParser.json() );
 
-app.listen(8080, function () {
-  console.log('Server listening on port 8080');
-});
-//accept id post
-app.post('/', function(request, response){
-  if(!request.body.graph){
-    var id = request.body.id;
-    console.log("Request for saving: "+id);
-    incoming++;
-    if(c1.free){
-      save(id, c1);
-    }else if(c2.free){
-      save(id, c2);
-    }else{
-      queue.push(id);
-    }
-  }else{
-    //has finished making requests
-    console.log("Requests finished, saving xml map");
-    var graph = request.body.graph;
-    saveGraph(graph, request.body.location);
-  }
-  response.send('POST received');  //close connection
-});
-//SSE Events
-var messageCount = 0;
-app.get('/update-stream', function(req, res){
-  //make client listen forever
-  req.socket.setTimeout(1000 * 60 * 20); //set timer to 20 minutes
-  eventEmitter.on('message', function(e){
-    messageCount++;
-    res.write('id: ' + messageCount + '\n');
-    res.write("data: " + e + '\n\n');
-  });
-  //write header
-  res.writeHead(200, {
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive'
-  });
-  res.write('\n');
-});
+    app.listen(8080, function () {
+      console.log('Server listening on port 8080');
+    });
+    //accept id post
+    app.post('/', function(request, response){
+      if(!request.body.graph){
+        var id = request.body.id;
+        console.log("Request for saving: "+id);
+        incoming++;
+        if(c1.free){
+          server.save(id, c1);
+        }else if(c2.free){
+          server.save(id, c2);
+        }else{
+          queue.push(id);
+        }
+      }else{
+        //has finished making requests
+        console.log("Requests finished, saving xml map");
+        var graph = request.body.graph;
+        server.saveGraph(graph, request.body.location);
+      }
+      response.send('POST received');  //close connection
+    });
+    //SSE Events
+    var messageCount = 0;
+    app.get('/update-stream', function(req, res){
+      //make client listen forever
+      req.socket.setTimeout(1000 * 60 * 20); //set timer to 20 minutes
+      eventEmitter.on('message', function(e){
+        messageCount++;
+        res.write('id: ' + messageCount + '\n');
+        res.write("data: " + e + '\n\n');
+      });
+      //write header
+      res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive'
+      });
+      res.write('\n');
+    });
+}
+server.main();
+server.quit = function(){
+  process.exit()
+}
 
 //save images
-function save(panoID, c){
+server.save = function (panoID, c){
   c.free = false;
   var canvas = c.canvas;
   canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
@@ -87,12 +94,12 @@ function save(panoID, c){
       //call next id
       var e = queue.shift();
       if(e)
-        save(e, c);
+        server.save(e, c);
       c.free = true;
     });
   })
 }
-function saveGraph(obj){
+server.saveGraph = function (obj){
   fs.writeFile(__dirname + '/map.xml', obj, function(err) {
     if(err) {
         return console.log(err);

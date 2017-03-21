@@ -24,8 +24,11 @@ var getDistance = function(p1, p2) {
 function initialize() {
   //subscribe to update-stream
   updates();
-    initLat = markers[0].getPosition().lat();
-    initLng = markers[0].getPosition().lng();
+  //use barycenter as 1st position
+    initLat = markers[0].getPosition().lat() + markers[1].getPosition().lat() + markers[2].getPosition().lat() + markers[3].getPosition().lat();
+    initLat /= 4;
+    initLng = markers[0].getPosition().lng() + markers[1].getPosition().lng() + markers[2].getPosition().lng() + markers[3].getPosition().lng();
+    initLng /= 4;
     sv = new google.maps.StreetViewService();
 
 //get panorama in 50m radious
@@ -67,8 +70,8 @@ function initMap() {
     });
     //addMarkers on click
     google.maps.event.addListener(map, "click", function(event){
-      if(markers.length > 4) return;
-      var pinColor = (markers.length>0) ? "FE7569" : "00ff00";
+      if(markers.length >= 4) return;
+      var pinColor =  "0066cc";
       var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor, new google.maps.Size(21, 34), new google.maps.Point(0,0), new google.maps.Point(10, 34));
       var marker = new google.maps.Marker({
         position : event.latLng,
@@ -77,10 +80,10 @@ function initMap() {
       });
       markers.push(marker);
       //draw the polygon
-      if(markers.length > 4){
+      if(markers.length >= 4){
         reorder();  //reorder markers
         poly = new google.maps.Polygon({
-          paths : [markers[1].getPosition(), markers[2].getPosition(), markers[3].getPosition(), markers[4].getPosition()],
+          paths : [markers[0].getPosition(), markers[1].getPosition(), markers[2].getPosition(), markers[3].getPosition()],
           strokeColor : "FF0000",
           strokeOpacity : 0.8,
           strokeWeight : 2,
@@ -109,17 +112,17 @@ function reorder(){
   var run = true;
   while(run){
     run = false;
-      for(var i=1; i<4; i++)
+      for(var i=0; i<3; i++)
       if(markers[i].getPosition().lat() > markers[i+1].getPosition().lat()){
         run = true;
         swap(i, i+1);
       }
   }
   //reorder by y
-  if(markers[1].getPosition().lng() > markers[2].getPosition().lng())
-    swap(1, 2);
-  if(markers[3].getPosition().lng() < markers[4].getPosition().lng())
-    swap(3, 4);
+  if(markers[0].getPosition().lng() > markers[1].getPosition().lng())
+    swap(0, 1);
+  if(markers[2].getPosition().lng() < markers[3].getPosition().lng())
+    swap(2, 3);
 
 }
 
@@ -130,8 +133,8 @@ function processSVdata(data, args){
   var bounds = function(){
 //find out where i lie
      var arr = [];
-     for(var i=1; i<5; i++){
-       var succ = (i==4) ? 1 : i+1;
+     for(var i=0; i<4; i++){
+       var succ = (i==3) ? 0 : i+1;
        var x1 = markers[i].getPosition().lat();
        var x2 = markers[succ].getPosition().lat();
        if((la < x1 && la > x2)||(la > x1 && la < x2))
@@ -192,7 +195,7 @@ function processSVdata(data, args){
 
 function save(id){
   xhr = new XMLHttpRequest();
-  var url = "/";
+  var url = "http://127.0.0.1:8080/";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/json");
 
@@ -201,7 +204,7 @@ function save(id){
 }
 function reqGraph(){
   var xhr = new XMLHttpRequest();
-  var url = "/";
+  var url = "http://127.0.0.1:8080/";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-type", "application/json");
 
@@ -231,10 +234,10 @@ function reqGraph(){
   xhr.send(data);
 }
 function updates(){
-  var source = new EventSource('/update-stream');
+  var source = new EventSource('http://127.0.0.1:8080/update-stream');
   source.addEventListener('message', function(e){
     var bar = document.getElementById('progress-bar').style.width = e.data + '%';
-    if(e.data == 100) document.getElementById('progress-bar').style['background-color'] = '#bbbbff';
+    if(e.data == 100) document.getElementById('progress-bar').style['background-color'] = '#CCECFF';
     console.log("event received: "+e.data);
   },false);
 }

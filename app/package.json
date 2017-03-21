@@ -1,0 +1,20 @@
+{
+  "name": "node_pan",
+  "version": "0.0.1",
+  "main": "./source/main.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "4.14.x",
+    "google-panorama-equirectangular": "*",
+    "request": "*",
+    "http": "*"
+  },
+  "devDependencies": {
+    "electron": "^1.4.3",
+    "canvas": "*"
+  },
+  "scripts" : {
+    "pack": "build --dir",
+    "dist": "build"
+  }
+}
